@@ -17,6 +17,8 @@ Unit tests cover individual primitives (symlinks, marker math, git diff). Scenar
 | 7 | `scope-vague/` | `/scope` | Vague criteria path — `[NEEDS CLARIFICATION]` + HIGH unknowns + loop verified | Manual walkthrough |
 | 8 | `value-frame-happy/` | `/value-frame` | Time lever, clean headline + sensitivity + defensibility | Manual walkthrough |
 | 9 | `value-frame-vague/` | `/value-frame` | Lever-unclear path — all 4 dims flagged, recommends /scope | Manual walkthrough |
+| 10 | `poc-learnings-writeback/` | `/poc` | Step 9 routes discoveries to stack.md + decisions.md + learnings.jsonl | Manual walkthrough |
+| 11 | `integrate-cleanroom/` | `/integrate` | Sentinel test: `/integrate` does NOT read poc/ — cleanroom contract verified | Manual walkthrough |
 
 ## Two forms, on purpose
 
