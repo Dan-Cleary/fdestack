@@ -1,0 +1,4 @@
+PRIOR LEARNINGS:
+  - confluence-acl-retrieval (conf 7): Confluence-on-Claude POCs almost always hit page-level ACL enforcement as the architectural crux; security teams will veto designs that hand-wave permissions at query time.
+  - snowflake-no-udfs (conf 6): Enterprise Snowflake environments commonly disallow UDFs — design embedding pipelines to run outside Snowflake when possible.
+  - renewal-narrative-driver (conf 8): When the exec sponsor has a renewal date in mind, the real deadline is internal narrative, not the technical pilot date — shape demos around that.
