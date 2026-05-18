@@ -1,0 +1,24 @@
+diff --git a/customers/northwind/blockers.md b/customers/northwind/blockers.md
+index f079ce8..20ca300 100644
+--- a/customers/northwind/blockers.md
++++ b/customers/northwind/blockers.md
+@@ -9,3 +9,6 @@
+ 
+ ## LOW — Worth Tracking
+ <!-- Not blocking now but could become blockers. -->
++
++## HIGH — Blocked
++- Confluence read access still not provisioned (committed 2026-04-17, now 4 days late). IT escalation needed.
+diff --git a/customers/northwind/stakeholders.md b/customers/northwind/stakeholders.md
+index 5fce58f..b365594 100644
+--- a/customers/northwind/stakeholders.md
++++ b/customers/northwind/stakeholders.md
+@@ -9,7 +9,7 @@
+ 
+ ## Technical Contacts
+ - **Maya Chen** (primary)
+-- **Sandeep** (last name TBD) — on Maya's team, has been experimenting with LangChain. To be looped in.
++- **Sandeep Iyer** — on Maya's team, has been experimenting with LangChain. To be looped in.
+ 
+ ## Skeptics / Blockers
+ - **Tom Reilly** — Security & Compliance. Owns SOC2 review. Not hostile but veto-capable. Frames ACL leakage as "fireable offense." Will support a design that handles page-level ACLs cleanly; will block one that hand-waves them.
