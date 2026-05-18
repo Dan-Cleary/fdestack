@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -e
+
+FDESTACK_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILLS_DIR="$HOME/.claude/skills"
+
+echo "FDEstack setup"
+echo "  source: $FDESTACK_DIR"
+echo "  skills: $SKILLS_DIR"
+echo ""
+
+mkdir -p "$SKILLS_DIR"
+
+# Link each skill
+for skill_dir in "$FDESTACK_DIR/skills"/*/; do
+  skill_name=$(basename "$skill_dir")
+  target="$SKILLS_DIR/$skill_name"
+  mkdir -p "$target"
+  ln -snf "$skill_dir/SKILL.md" "$target/SKILL.md"
+  echo "  linked: $skill_name"
+done
+
+# Create ~/.fdestack/ for learnings
+mkdir -p "$HOME/.fdestack"
+touch "$HOME/.fdestack/learnings.jsonl"
+
+echo ""
+echo "FDEstack ready."
+echo ""
+echo "Next: create your ops repo and run your first customer session."
+echo "  mkdir -p ~/fde-ops/customers && cd ~/fde-ops && git init"
+echo "  claude  # then: /customer-context <customer-name>"
+echo ""
+echo "Power users: run /sync-gbrain from ~/fde-ops/ to enable cross-customer semantic search."
