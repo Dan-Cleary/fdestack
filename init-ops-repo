@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Bootstrap an FDE ops repo for use with FDEstack skills
+
+set -e
+
+OPS_DIR="${1:-$HOME/fde-ops}"
+
+if [ -d "$OPS_DIR/.git" ]; then
+  echo "Ops repo already exists at $OPS_DIR"
+  echo "Run: cd $OPS_DIR && claude"
+  exit 0
+fi
+
+if [ -d "$OPS_DIR" ] && [ "$(ls -A "$OPS_DIR" 2>/dev/null)" ]; then
+  echo "Error: $OPS_DIR exists and is not empty. Pass a different path:"
+  echo "  bash init-ops-repo ~/my-fde-ops"
+  exit 1
+fi
+
+mkdir -p "$OPS_DIR/customers"
+
+cd "$OPS_DIR"
+git init -q -b main
+git commit -q --allow-empty -m "init: fde ops repo"
+
+cat > .gitignore <<'EOF'
+.DS_Store
+*.swp
+EOF
+git add .gitignore
+git commit -q -m "chore: add .gitignore"
+
+echo ""
+echo "Ops repo ready at $OPS_DIR"
+echo ""
+echo "Next: start a customer session"
+echo "  cd $OPS_DIR && claude"
+echo "  /customer-context <customer-name>"
