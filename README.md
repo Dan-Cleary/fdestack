@@ -52,8 +52,10 @@ Claude extracts stack info, stakeholders, stated problem, real problem, and open
 | `/discovery <name> <transcript>` | Process a meeting transcript and update customer context |
 | `/scope <name> <problem>` | Force binary success criteria; push vague items to unknowns.md HIGH |
 | `/value-frame <name> <opportunity>` | Translate inefficiency into defensible $ with lever taxonomy + sensitivity + defensibility check |
+| `/poc <name> [--purpose value\|showcase\|feasibility]` | Throwaway POC with mandatory learnings write-back to stack.md / decisions.md / learnings.jsonl |
+| `/integrate <name>` | Production rebuild from scope + stack + decisions. Cleanroom — does NOT read poc/ |
 
-More skills coming in later phases (POC, integration, triage, retro).
+More skills coming in later phases (triage, retro).
 
 ## Customer context schema
 
