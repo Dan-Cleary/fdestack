@@ -8,7 +8,14 @@ description: |
   discoveries to stack.md / decisions.md / learnings.jsonl so /integrate can
   use them without ever reading POC code.
 
+  Proactively invoke this skill after /scope when the FDE says "let me build
+  a quick thing", "let me try this", "time to prototype", "let's hack
+  something together", or otherwise indicates they're about to write
+  throwaway code for a customer. Push back if no /scope exists yet.
+
   Usage: /poc <customer-name> [--purpose value|showcase|feasibility]
+  Voice triggers: "build a poc", "throwaway prototype",
+  "let me try this", "hack something together".
 ---
 
 # /poc

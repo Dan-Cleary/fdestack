@@ -5,7 +5,15 @@ description: |
   value-frame.md. EXPLICITLY DOES NOT READ customers/<name>/poc/ — that
   directory is throwaway. POC discoveries reach /integrate via the learnings
   write-back that /poc performs into stack.md and decisions.md.
+
+  Proactively invoke this skill after /poc has run AND its learnings write-back
+  is complete when the FDE says "let's productionize", "time to integrate",
+  "build the real thing", or "cleanroom rebuild". Refuse to run if no /poc
+  exists yet — surface the gap rather than building blind.
+
   Usage: /integrate <customer-name>
+  Voice triggers: "productionize", "build the real thing",
+  "integrate this", "cleanroom rebuild".
 ---
 
 # /integrate
