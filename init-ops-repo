@@ -27,8 +27,65 @@ cat > .gitignore <<'EOF'
 .DS_Store
 *.swp
 EOF
-git add .gitignore
-git commit -q -m "chore: add .gitignore"
+
+cat > CLAUDE.md <<'EOF'
+# FDE ops repo
+
+This repo holds customer engagement state for forward-deployed engineering work.
+FDEstack skills read and write `customers/<name>/` and commit on every meaningful
+event. The git history IS the engagement record.
+
+## Skill routing
+
+When the user's intent matches an FDEstack skill, invoke it via the Skill tool.
+When in doubt, invoke the skill rather than answering directly.
+
+Order of operations within a customer session:
+
+1. **/customer-context <name>** — always first. Loads context, prints session
+   brief, surfaces drift, asks what's new. Required before any other skill
+   can run for that customer (they check the session marker).
+2. **/discovery <name> <doc>** — process any inbound source (transcript,
+   handoff notes, briefing, RFP, etc.). Extracts stack, stakeholders, real-
+   vs-stated problem, open questions, conflicts.
+3. **/scope <name> <problem>** — force binary success criteria. Vague items
+   push to unknowns.md HIGH.
+4. **/value-frame <name> <opportunity>** — dollar framing with lever taxonomy,
+   sensitivity, defensibility check. Optional but recommended before /poc.
+5. **/poc <name> [--purpose value|showcase|feasibility]** — throwaway proof.
+   Mandatory learnings write-back at the end.
+6. **/integrate <name>** — production rebuild. Cleanroom — does NOT read poc/.
+
+Cross-cutting:
+- **/triage [active|blocked|all]** — start-of-day portfolio view. No customer
+   required. Surface highest-urgency customer.
+- **/engagement-retro <name> [--since DATE]** — weekly per-customer retro.
+   4 questions, audit trail for stale items, new unknowns get tagged.
+- **/learnings [list|search|prune|edit|export]** — manage the cross-customer
+   pattern library at ~/.fdestack/learnings.jsonl.
+
+## Conventions
+
+- Customer files live under `customers/<name>/` — 7 standard files plus dated
+  artifacts (discovery-, scope-, value-frame-, retro-).
+- Every skill commits to git. Commit messages follow `<skill>: <customer> <date>`.
+- Vague items get pushed to `customers/<name>/unknowns.md` HIGH with audit-trail
+  tags like `[scope-2026-05-19]` or `[value-frame-2026-05-19]`. They surface in
+  every future /customer-context session brief.
+- POC code at `customers/<name>/poc/` is THROWAWAY. /integrate refuses to read
+  it. Learnings flow through stack.md / decisions.md / learnings.jsonl instead.
+
+## What NOT to do here
+
+- Don't manually edit context files mid-skill — let skills route. Edit between
+  sessions is fine and surfaces as drift in the next /customer-context.
+- Don't push this repo to a public remote. It contains customer info.
+- Don't run gstack skills here — gstack is for code repos, FDEstack is for
+  customer engagement repos. They peacefully coexist.
+EOF
+
+git add .gitignore CLAUDE.md
+git commit -q -m "chore: add .gitignore + CLAUDE.md routing rules"
 
 echo ""
 echo "Ops repo ready at $OPS_DIR"
