@@ -125,8 +125,8 @@ Load (or create) a customer's context. Prints a session brief: open unknowns, cu
 
 This is the **only skill that doesn't require a prior session marker.** Always run it first when entering a customer session.
 
-### `/discovery <name> <transcript-or-notes>`
-Process a meeting transcript. Extracts: new stack info, new stakeholders, **stated problem vs. real problem (inferred from subtext)**, open questions, and any conflicts with existing context. Auto-commits a `discovery-YYYY-MM-DD.md`.
+### `/discovery <name> <any source doc>`
+Process any inbound source of customer context — meeting transcript, prior FDE's handoff notes, AE/sales briefing, customer-side RFP response, prior Discovery Workshop output, or your own raw notes. Extracts: new stack info, new stakeholders, **stated problem vs. real problem (inferred from subtext)**, open questions, and any conflicts with existing context. Records source type in the audit trail. Auto-commits a `discovery-YYYY-MM-DD.md`.
 
 ### `/scope <name> <problem statement>`
 Force the wedge question: *"What's the smallest thing buildable this week that proves the core value?"* Requires **binary success criteria** — "feels faster" gets rejected; "8/10 hand-picked questions correct" gets accepted. Vague answers (no validator, no estimate, fuzzy criteria) push to `unknowns.md` HIGH with audit-trail tags so they surface in every future session until resolved.

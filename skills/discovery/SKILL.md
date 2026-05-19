@@ -1,22 +1,28 @@
 ---
 name: discovery
 description: |
-  Process a customer meeting transcript or notes. Extracts new stack info,
+  Process any inbound source of customer context — meeting transcript, prior
+  FDE's handoff notes, AE/sales briefing, customer-side RFP response, prior
+  Discovery Workshop output, or your own raw notes. Extracts new stack info,
   stakeholders, stated problem, real problem, open questions, and context
   conflicts. Updates customer context files and commits.
-  Usage: /discovery <customer-name> <paste transcript or notes>
+  Usage: /discovery <customer-name> <paste any source doc>
 ---
 
 # /discovery
 
-Process a meeting transcript or call notes and update customer context.
+Process any source of customer context — raw or already-structured — and update the customer's context files.
 
 ## Step 0: Parse inputs
 
-The customer name is the first argument. Everything after it is the transcript or notes.
+The customer name is the first argument. Everything after it is the source content — a transcript, notes, handoff doc, briefing, RFP response, or any other inbound material about the customer.
 
-If no customer name is provided: ask "Which customer? (e.g. /discovery acme <transcript>)"
-If no transcript is provided after the name: ask "Paste the transcript or notes below."
+If no customer name is provided: ask "Which customer? (e.g. /discovery acme <source doc>)"
+If no source content is provided after the name: ask "Paste the source content below — a transcript, handoff doc, briefing, or notes."
+
+Note the source type at the top of the discovery file (Step 6): `Source: <transcript | handoff | briefing | RFP | notes | other>`. This is part of the audit trail — six months later, knowing whether a decision came from your own call vs. an inherited doc is important context.
+
+When the source is **already structured** (e.g., a Solution Blueprint with sections like "Pain Points" and "Strategic Priorities"), treat it as input not output: extract the same six dimensions below, but expect more pre-organized content and less inference work. The stated-vs-real-problem distinction is still worth making — synthesized docs are usually the *upstream author's* take, not the customer's raw words.
 
 Set CUSTOMER_NAME from the first argument.
 
