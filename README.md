@@ -54,8 +54,8 @@ Claude extracts stack info, stakeholders, stated problem, real problem, and open
 | `/value-frame <name> <opportunity>` | Translate inefficiency into defensible $ with lever taxonomy + sensitivity + defensibility check |
 | `/poc <name> [--purpose value\|showcase\|feasibility]` | Throwaway POC with mandatory learnings write-back to stack.md / decisions.md / learnings.jsonl |
 | `/integrate <name>` | Production rebuild from scope + stack + decisions. Cleanroom — does NOT read poc/ |
-
-More skills coming in later phases (triage, retro).
+| `/triage [active\|blocked\|all]` | Cross-customer portfolio dashboard; ranks by urgency (deadlines > blockers > unknowns) |
+| `/engagement-retro <name> [--since DATE]` | Weekly per-customer retro: shipped/stuck/learned/next + stale-item escalation flags |
 
 ## Customer context schema
 
