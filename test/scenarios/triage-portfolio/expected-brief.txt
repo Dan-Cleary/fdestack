@@ -1,0 +1,35 @@
+════════════════════════════════════════════════════════════
+TRIAGE: active cohort | 3 customers | 2026-05-19
+════════════════════════════════════════════════════════════
+
+▶ globex — 
+  Stage: Live integration, prod rollout next month.
+  Urgency: 20  (blockers:2  unknowns:2(capped to 2)  within-7d:1)
+  HIGH blockers:
+    - Compliance review stalled at risk committee — no movement in 3 weeks.
+    - Data residency requirement (EU only) blocks GCP us-region deployment plan.
+  HIGH unknowns (top 3 of 2):
+    - Will risk committee approve before launch date?
+    - Can we move workload to GCP europe-west region within timeline?
+  Upcoming:
+    - 2026-05-22: Risk committee re-review (escalated)
+    - 2026-06-01: Production launch
+
+▶ northwind — 
+  Stage: Anthropic POC. Evaluating Claude for internal tooling. 60-day pilot started 2026-04-15.
+  Urgency: 10  (blockers:0  unknowns:8(capped to 5)  within-7d:0)
+  HIGH unknowns (top 3 of 3):
+    - ACL-aware retrieval design over Confluence — how do we enforce page-level permissions at query time with vector search?
+    - FDE-owned: architecture proposal due next week (commitment from kickoff).
+    - Confluence read access for FDE (Maya, target by Friday 2026-04-17).
+  Upcoming:
+    - 2026-04-17 (target): Confluence read access for FDE
+    - 2026-04-21 (Tue): Working session — bring ACL-aware retrieval proposal
+
+▶ acme — 
+  Stage: Anthropic POC, mid-pilot. Stack: TypeScript, GCP, Postgres.
+  Urgency: 0  (blockers:0  unknowns:0(capped to 0)  within-7d:0)
+
+RECOMMENDED FIRST ACTION:
+  globex — production launch in 13 days, 2 HIGH blockers, 1 within-7d milestone
+════════════════════════════════════════════════════════════

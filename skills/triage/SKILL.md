@@ -90,12 +90,16 @@ Rough scoring — the goal is ranking, not precision:
 
 ```
 urgency = (HIGH_BLOCKERS_count × 3)
-       + (HIGH_UNKNOWNS_count × 2)
-       + (UPCOMING_within_7_days × 5)
+       + min(HIGH_UNKNOWNS_count, 5) × 2
+       + (UPCOMING_within_7_days × 10)
        + (DAYS_SINCE_LAST_COMMIT > 7 ? -1 : 0)
 ```
 
-A near-term deadline trumps a stack of HIGH unknowns. A customer with no recent activity scores lower (probably already shipped, or already de-prioritized).
+Two design choices worth noting:
+
+1. **Unknown count is capped at 5.** A customer accumulating 12 HIGH unknowns isn't 6x more urgent than one with 2 — it's a sign the customer has been neglected, not a sign of imminent crisis. Capping prevents discovery-stage customers (which naturally have many open questions) from shadowing integration-stage customers facing real deadlines.
+
+2. **Within-7d items dominate.** Each weighs 10, so a single imminent deadline (1 × 10 = 10) outweighs 5 unknowns (5 × 2 = 10) and ties 3 blockers (3 × 3 = 9). A near-term deadline almost always trumps accumulated unresolved items.
 
 ## Step 7: Print Triage Brief
 
