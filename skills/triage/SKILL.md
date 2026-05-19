@@ -5,7 +5,15 @@ description: |
   the highest-urgency blockers and unresolved unknowns across the FDE's
   portfolio. Optional filter to one cohort. No session marker required —
   this skill is the "where do I look first today?" view.
+
+  Proactively invoke this skill at the start of a session in an FDE ops repo
+  when no specific customer has been named, OR when the FDE asks "where should
+  I look first", "what's most urgent", "what's on my plate today", or any
+  variant of "what should I be working on?".
+
   Usage: /triage [active|blocked|all]
+  Voice triggers: "what's urgent", "where do I look first",
+  "what should I work on", "what's on my plate".
 ---
 
 # /triage

@@ -7,7 +7,15 @@ description: |
   what we learned, what's next. Optional cross-customer learnings write-back
   for patterns worth remembering. Distinct from gstack's /retro (which is
   engineering-retro per-codebase).
+
+  Proactively invoke this skill on Fridays or end-of-week, or when the FDE
+  asks "where did the week go", "weekly retro", "what shipped this week",
+  or seems to be wrapping up an engagement phase. Always per-customer —
+  use /triage for the portfolio view.
+
   Usage: /engagement-retro <customer-name> [--since <YYYY-MM-DD>]
+  Voice triggers: "weekly retro", "where did the week go",
+  "what shipped this week", "wrap up <customer>".
 ---
 
 # /engagement-retro
