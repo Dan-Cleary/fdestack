@@ -12,7 +12,7 @@ SKILLS_DIR="$HOME/.claude/skills"
 
 # --- Symlink tests ---
 
-for skill in customer-context discovery scope value-frame poc integrate triage; do
+for skill in customer-context discovery scope value-frame poc integrate triage engagement-retro; do
   target="$SKILLS_DIR/$skill/SKILL.md"
   if [ -L "$target" ]; then
     ok "symlink exists: $skill/SKILL.md"
