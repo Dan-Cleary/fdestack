@@ -123,12 +123,39 @@ If after the one pushback any of these are still missing or vague, mark them for
 - Estimated build time is "I don't know" or unrealistic for a one-week wedge → `estimate` is vague
 - No specified person/role validating success → `validator` is vague
 
-For each vague item, you will:
+For each vague item, before silently routing it to unknowns.md, use AskUserQuestion to give the FDE one last chance to resolve it. The decision brief format:
+
+```
+D<N> — <item label> is still vague after one pushback
+ELI10: <plain English of what's vague and why it matters>
+Stakes if we pick wrong: Vague <item> means the <POC|value frame|customer
+conversation> can't be defended. The customer will ask the same question we
+should have answered before starting work.
+Recommendation: Push to unknowns.md HIGH — this is what the unknowns loop
+is for, and resolving it now would burn the rest of the scoping session.
+Pros / cons:
+A) Push to unknowns.md HIGH (recommended)
+  ✅ Preserves momentum — scope file ships now with [NEEDS CLARIFICATION]
+  ✅ Audit trail via [scope-<date>] tag — surfaces every /customer-context
+  ❌ FDE has to come back to resolve before /poc or customer conversation
+B) Stop and resolve now
+  ✅ Scope ships clean with no [NEEDS CLARIFICATION] markers
+  ❌ Pulls the FDE into a sub-discovery that may not yet have inputs
+C) Force the scope through as-is (no flag, no unknown)
+  ✅ Fastest path to a scope file
+  ❌ Hides the gap — vague criteria silently become real defects later
+Net: Path A is the unknowns loop doing its job; B is the right move when
+the answer is reachable in this session; C is almost never right.
+```
+
+Default to (A) if the FDE doesn't choose. For each vague item the FDE confirms (A):
 1. Write it inline in the scope file as `> [NEEDS CLARIFICATION: <description>]` in the relevant section.
 2. Append it to `customers/<name>/unknowns.md` under `## HIGH — Unknown, Blocking` with format:
    `- [scope-<date>] <description> — need answer to proceed past POC.`
 
-This ensures it surfaces in every future Session Brief until the FDE resolves it.
+For (B): pause Step 7, ask the FDE the specific clarifying question, fold the answer back in, and re-check. For (C): write the scope file without the flag, but log this in `decisions.md` as "FDE explicitly accepted <item> as vague — no audit trail" so the next session sees it.
+
+This ensures vague items surface in every future Session Brief until resolved, but gives the FDE the choice rather than railroading.
 
 ## Step 7: Write the scope file
 
