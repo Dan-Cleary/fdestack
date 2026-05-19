@@ -4,7 +4,15 @@ description: |
   Force the wedge question: smallest thing buildable this week that proves the
   core value. Require binary success criteria. Push vague answers to unknowns.md
   as HIGH so they surface in every future Session Brief.
+
+  Proactively invoke this skill after /discovery when the FDE describes a
+  problem they want to solve for the customer, references the wedge or first
+  thing to build, or asks "what should we build first" / "what's the smallest
+  thing". Always run before /poc or /value-frame.
+
   Usage: /scope <customer-name> <problem statement>
+  Voice triggers: "scope this out", "what's the wedge",
+  "smallest thing that proves value", "what should we build first".
 ---
 
 # /scope

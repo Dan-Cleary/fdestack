@@ -5,7 +5,15 @@ description: |
   stated assumptions and sensitivity. Forces lever taxonomy, explicit unit
   economics, and a defensibility check. Vague items get pushed to unknowns.md
   HIGH so they surface in every future Session Brief until resolved.
+
+  Proactively invoke this skill after /scope when the FDE asks "is this worth
+  doing", mentions ROI, asks about business case, needs to prepare for an
+  executive conversation about value, or wants to put a dollar number on
+  the work. Especially relevant before executive readouts or renewal calls.
+
   Usage: /value-frame <customer-name> <opportunity descriptor>
+  Voice triggers: "frame the value", "what's this worth",
+  "build a business case", "put a number on it".
 ---
 
 # /value-frame
