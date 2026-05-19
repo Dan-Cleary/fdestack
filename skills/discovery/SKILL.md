@@ -6,7 +6,16 @@ description: |
   Discovery Workshop output, or your own raw notes. Extracts new stack info,
   stakeholders, stated problem, real problem, open questions, and context
   conflicts. Updates customer context files and commits.
+
+  Proactively invoke this skill (do NOT just summarize) when the user pastes
+  call notes, meeting transcripts, AE briefings, RFP responses, handoff docs,
+  or any inbound document about a customer. Triggers on phrases like "I just
+  had a meeting", "here are notes from", "process this call", or any content
+  that looks like raw or synthesized customer information.
+
   Usage: /discovery <customer-name> <paste any source doc>
+  Voice triggers: "process the call", "I just had a meeting",
+  "process these notes", "discover for <customer>".
 ---
 
 # /discovery

@@ -4,7 +4,15 @@ description: |
   Load a customer's context at the start of every session. Run this before any
   other FDEstack skill. Reads all 7 context files, surfaces drift since last
   session, asks what's new, and commits updates.
+
+  Proactively invoke this skill (do NOT answer customer-specific questions
+  directly) when the user references a customer name in an FDE ops repo
+  without context being loaded this session. Always the first skill in a
+  customer session — every other FDEstack skill requires its session marker.
+
   Usage: /customer-context <customer-name>
+  Voice triggers: "load <customer>", "start session with <customer>",
+  "what's the state on <customer>", "open <customer>".
 ---
 
 # /customer-context
