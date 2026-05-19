@@ -101,7 +101,31 @@ Working through the transcript, identify:
 3. **Stated problem** — what the customer said they want ("we need X")
 4. **Real problem** — what you infer from subtext, what wasn't said, what seems to actually be driving this
 5. **Open questions** — things the customer said they'd find out, things that came up without resolution, things you need to follow up on
-6. **Context conflicts** — anything that contradicts what's currently in the context files
+6. **Context conflicts** — anything that contradicts what's currently in the context files. For each conflict, use AskUserQuestion to ask the FDE which version is canonical before writing anything. Format:
+
+   ```
+   D<N> — Context conflict on <subject>
+   ELI10: <stakeholders.md|stack.md|...> says one thing; this <transcript|
+   handoff doc|...> says another. Both can't be true. Which is current?
+   Stakes if we pick wrong: Wrong choice silently propagates into every
+   future Session Brief and skill output until corrected.
+   Recommendation: <whichever is more recent / from a more authoritative
+   source>, because <one-line reason>.
+   Pros / cons:
+   A) Trust the existing context file (recommended if older but
+      authoritative) — keeps continuity, requires no edit
+      ✅ No risk of overwriting a deliberate prior decision
+      ❌ Discards new info that might be more accurate
+   B) Trust the new source — overwrite the existing entry
+      ✅ Reflects the most recent signal
+      ❌ Loses the prior decision's context (capture in decisions.md)
+   C) Both are partially right — let me edit by hand
+      ✅ Surfaces the nuance neither pure choice captures
+      ❌ Slowest; requires FDE to interrupt the discovery flow
+   Net: A preserves history; B updates fast; C is for the messy real case.
+   ```
+
+   For each FDE choice: if A, leave the existing entry untouched and append a one-line note in the discovery file's `## Context Conflicts` section ("FDE confirmed <existing version> is current; <new source>'s claim discarded"). If B, overwrite the existing entry and log the change in decisions.md. If C, pause Step 5 so the FDE can edit.
 
 ## Step 6: Write discovery file
 
